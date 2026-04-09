@@ -1,0 +1,136 @@
+{
+  "last_updated": "2026-04-09T06:00:00Z",
+  "boats": [
+    {
+      "id": "hr-001",
+      "model": "Hallberg-Rassy 42F",
+      "year": 2018,
+      "length_ft": 42,
+      "price": 385000,
+      "original_price": 415000,
+      "location": "Palma de Mallorca, Spain",
+      "flag": "🇪🇸",
+      "status": "for-sale",
+      "listed_date": "2025-10-15",
+      "broker": "Hallberg-Rassy Yachts Spain",
+      "private_sale": false,
+      "engine": "Volvo D3 150hp",
+      "hull": "Fiberglass",
+      "listing_url": "https://www.yachtworld.com",
+      "image_url": "",
+      "price_history": [
+        { "date": "2025-10-15", "price": 415000, "type": "listed" },
+        { "date": "2026-01-20", "price": 395000, "type": "reduction" },
+        { "date": "2026-03-01", "price": 385000, "type": "reduction" }
+      ]
+    },
+    {
+      "id": "hr-002",
+      "model": "Hallberg-Rassy 372",
+      "year": 2008,
+      "length_ft": 37,
+      "price": 199000,
+      "original_price": 199000,
+      "location": "Gothenburg, Sweden",
+      "flag": "🇸🇪",
+      "status": "for-sale",
+      "listed_date": "2026-03-28",
+      "broker": null,
+      "private_sale": true,
+      "engine": "Volvo MD2040 40hp",
+      "hull": "Fiberglass",
+      "listing_url": "https://www.yachtworld.com",
+      "image_url": "",
+      "price_history": [
+        { "date": "2026-03-28", "price": 199000, "type": "listed" }
+      ]
+    },
+    {
+      "id": "hr-003",
+      "model": "Hallberg-Rassy 48 MkII",
+      "year": 2015,
+      "length_ft": 48,
+      "price": 610000,
+      "original_price": 649000,
+      "location": "Annapolis, MD, USA",
+      "flag": "🇺🇸",
+      "status": "under-offer",
+      "listed_date": "2025-08-10",
+      "broker": "Bluewater Sailing LLC",
+      "private_sale": false,
+      "engine": "Volvo D4-260 260hp",
+      "hull": "Fiberglass",
+      "listing_url": "https://www.yachtworld.com",
+      "image_url": "",
+      "price_history": [
+        { "date": "2025-08-10", "price": 649000, "type": "listed" },
+        { "date": "2025-11-15", "price": 625000, "type": "reduction" },
+        { "date": "2026-02-01", "price": 610000, "type": "reduction" }
+      ]
+    },
+    {
+      "id": "hr-004",
+      "model": "Hallberg-Rassy 310",
+      "year": 2003,
+      "length_ft": 31,
+      "price": 89000,
+      "original_price": 89000,
+      "location": "Hamburg, Germany",
+      "flag": "🇩🇪",
+      "status": "for-sale",
+      "listed_date": "2026-02-14",
+      "broker": "Baltic Yachts GmbH",
+      "private_sale": false,
+      "engine": "Volvo MD2030 28hp",
+      "hull": "Fiberglass",
+      "listing_url": "https://www.yachtworld.com",
+      "image_url": "",
+      "price_history": [
+        { "date": "2026-02-14", "price": 89000, "type": "listed" }
+      ]
+    },
+    {
+      "id": "hr-005",
+      "model": "Hallberg-Rassy 64",
+      "year": 2020,
+      "length_ft": 64,
+      "price": 1850000,
+      "original_price": 1950000,
+      "location": "Fort Lauderdale, FL, USA",
+      "flag": "🇺🇸",
+      "status": "for-sale",
+      "listed_date": "2025-06-01",
+      "broker": "Worth Avenue Yachts",
+      "private_sale": false,
+      "engine": "Volvo IPS 650 2x650hp",
+      "hull": "Fiberglass",
+      "listing_url": "https://www.yachtworld.com",
+      "image_url": "",
+      "price_history": [
+        { "date": "2025-06-01", "price": 1950000, "type": "listed" },
+        { "date": "2026-01-10", "price": 1850000, "type": "reduction" }
+      ]
+    },
+    {
+      "id": "hr-006",
+      "model": "Hallberg-Rassy 412",
+      "year": 2012,
+      "length_ft": 41,
+      "price": 295000,
+      "original_price": 295000,
+      "location": "Lagos, Portugal",
+      "flag": "🇵🇹",
+      "status": "sold",
+      "listed_date": "2025-11-01",
+      "broker": "Algarve Yachts",
+      "private_sale": false,
+      "engine": "Volvo D3 130hp",
+      "hull": "Fiberglass",
+      "listing_url": "https://www.yachtworld.com",
+      "image_url": "",
+      "price_history": [
+        { "date": "2025-11-01", "price": 295000, "type": "listed" }
+      ]
+    }
+  ]
+}

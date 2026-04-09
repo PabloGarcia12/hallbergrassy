@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Market Watch — Hallberg-Rassy for Sale</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1a1c;
+    --ink2: #1e2e32;
+    --sea: #0e4a5c;
+    --sea2: #1a6880;
+    --foam: #c8dfe6;
+    --gold: #c09a4a;
+    --gold2: #e8c06a;
+    --mist: #8aa8b0;
+    --light: #f0f5f7;
+    --card: #162428;
+    --border: rgba(200,223,230,0.12);
+    --green: #2e7d5e;
+    --green2: #3da678;
+    --red: #8b2c2c;
+    --red2: #c94040;
+    --amber: #8b6020;
+    --amber2: #d4942a;
+    --radius: 4px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--ink);
+    color: var(--foam);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(14,74,92,0.4) 0%, transparent 70%);
+  }
+
+  /* HEADER */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 2.5rem 1.5rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .brand h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .brand h1 span { color: var(--gold); }
+
+  .brand p {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--mist);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 0.35rem;
+  }
+
+  .header-meta {
+    text-align: right;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--mist);
+    line-height: 1.8;
+  }
+
+  .header-meta strong {
+    color: var(--gold2);
+    font-weight: 400;
+  }
+
+  /* SUMMARY BAR */
+  .summary-bar {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .stat {
+    padding: 1rem 2rem;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--mist);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+
+  /* FILTERS */
+  .filters {
+    padding: 1rem 2.5rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .filter-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--mist);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-right: 0.25rem;
+  }
+
+  .filter-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--mist);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.05em;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--sea);
+    border-color: var(--sea2);
+    color: var(--foam);
+  }
+
+  .search-box {
+    margin-left: auto;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--foam);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius);
+    width: 200px;
+    outline: none;
+  }
+
+  .search-box::placeholder { color: var(--mist); opacity: 0.6; }
+  .search-box:focus { border-color: var(--sea2); }
+
+  /* SORT */
+  .sort-bar {
+    padding: 0.6rem 2.5rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--mist);
+  }
+
+  .sort-bar span { letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .sort-opt {
+    cursor: pointer;
+    color: var(--mist);
+    text-decoration: none;
+    transition: color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .sort-opt:hover, .sort-opt.active { color: var(--gold2); }
+  .sort-opt.active::after { content: ' ↓'; }
+
+  /* GRID */
+  .grid {
+    padding: 2rem 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.25rem;
+  }
+
+  /* BOAT CARD */
+  .boat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .boat-card:hover {
+    border-color: rgba(200,223,230,0.3);
+    transform: translateY(-2px);
+  }
+
+  .boat-card.status-sold {
+    opacity: 0.55;
+  }
+
+  .boat-card.status-sold::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 20px,
+      rgba(139,44,44,0.06) 20px,
+      rgba(139,44,44,0.06) 22px
+    );
+    pointer-events: none;
+  }
+
+  /* CARD IMAGE */
+  .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    background: var(--ink2);
+  }
+
+  .card-image-placeholder {
+    width: 100%;
+    height: 200px;
+    background: var(--ink2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mist);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* STATUS BADGE */
+  .status-badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+  }
+
+  .badge-for-sale { background: var(--green); color: #b6f0d8; }
+  .badge-under-offer { background: var(--amber); color: #fce8b0; }
+  .badge-sold { background: var(--red); color: #f9c0c0; }
+  .badge-new {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+  }
+
+  /* CARD BODY */
+  .card-body {
+    padding: 1.1rem 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .card-subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--mist);
+    letter-spacing: 0.08em;
+    margin-top: 0.1rem;
+  }
+
+  /* PRICE ROW */
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .price-current {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--gold2);
+  }
+
+  .price-original {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--mist);
+    text-decoration: line-through;
+  }
+
+  .price-cut {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--red2);
+    background: rgba(139,44,44,0.2);
+    padding: 0.15rem 0.4rem;
+    border-radius: 2px;
+  }
+
+  /* META GRID */
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem 1rem;
+  }
+
+  .meta-item {}
+  .meta-key {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--mist);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.15rem;
+  }
+
+  .meta-val {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    color: var(--foam);
+  }
+
+  .meta-val.highlight { color: var(--gold2); }
+  .meta-val.days-long { color: var(--red2); }
+
+  /* PRICE HISTORY */
+  .price-history {
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--mist);
+  }
+
+  .price-history-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    color: var(--mist);
+    opacity: 0.7;
+  }
+
+  .price-event {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.15rem 0;
+    border-bottom: 1px solid rgba(200,223,230,0.05);
+  }
+
+  .price-event:last-child { border-bottom: none; }
+  .price-event .cut { color: var(--red2); }
+  .price-event .orig { color: var(--green2); }
+
+  /* CARD FOOTER */
+  .card-footer {
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .broker-info {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--mist);
+  }
+
+  .broker-info strong {
+    color: var(--foam);
+    font-weight: 400;
+    display: block;
+    font-size: 0.72rem;
+  }
+
+  .view-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--gold2);
+    text-decoration: none;
+    border: 1px solid rgba(192,154,74,0.3);
+    padding: 0.3rem 0.65rem;
+    border-radius: var(--radius);
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .view-btn:hover {
+    background: rgba(192,154,74,0.1);
+    border-color: var(--gold);
+  }
+
+  /* EMPTY STATE */
+  .empty-state {
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 4rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--mist);
+    line-height: 2;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1rem 2.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--mist);
+    opacity: 0.6;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* LOADING */
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40vh;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--mist);
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 1.25rem 1rem; }
+    .grid { padding: 1rem; gap: 1rem; grid-template-columns: 1fr; }
+    .filters { padding: 0.75rem 1rem; }
+    .summary-bar { }
+    .stat { padding: 0.75rem 1.25rem; }
+    .sort-bar { padding: 0.5rem 1rem; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <h1>HR <span>Market</span> Watch</h1>
+    <p>Hallberg-Rassy — Global listings tracker</p>
+  </div>
+  <div class="header-meta">
+    <div>Last updated: <strong id="last-updated">—</strong></div>
+    <div>Source: YachtWorld.com</div>
+    <div>Auto-refreshes daily via GitHub</div>
+  </div>
+</header>
+
+<div class="summary-bar" id="summary-bar">
+  <div class="stat"><div class="stat-value" id="stat-total">—</div><div class="stat-label">Total listings</div></div>
+  <div class="stat"><div class="stat-value" id="stat-forsale">—</div><div class="stat-label">For sale</div></div>
+  <div class="stat"><div class="stat-value" id="stat-offer">—</div><div class="stat-label">Under offer</div></div>
+  <div class="stat"><div class="stat-value" id="stat-sold">—</div><div class="stat-label">Sold / off market</div></div>
+  <div class="stat"><div class="stat-value" id="stat-cuts">—</div><div class="stat-label">Price reductions</div></div>
+  <div class="stat"><div class="stat-value" id="stat-avg">—</div><div class="stat-label">Avg. asking price</div></div>
+</div>
+
+<div class="filters">
+  <span class="filter-label">Status</span>
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="for-sale">For sale</button>
+  <button class="filter-btn" data-filter="under-offer">Under offer</button>
+  <button class="filter-btn" data-filter="sold">Sold</button>
+  <span class="filter-label" style="margin-left:1rem">Seller</span>
+  <button class="filter-btn" data-filter="private">Private only</button>
+  <button class="filter-btn" data-filter="price-cut">Price cuts</button>
+  <input class="search-box" type="text" id="search" placeholder="Search model, location…">
+</div>
+
+<div class="sort-bar">
+  <span>Sort by</span>
+  <a class="sort-opt active" data-sort="listed">Newest listed</a>
+  <a class="sort-opt" data-sort="price-asc">Price ↑</a>
+  <a class="sort-opt" data-sort="price-desc">Price ↓</a>
+  <a class="sort-opt" data-sort="days">Days on market</a>
+  <a class="sort-opt" data-sort="model">Model</a>
+</div>
+
+<div class="grid" id="grid">
+  <div class="loading">Loading listings…</div>
+</div>
+
+<footer>
+  <span>HR Market Watch — not affiliated with Hallberg-Rassy AB</span>
+  <span>Data sourced from public listings · Updated automatically every 24h</span>
+</footer>
+
+<script>
+let allBoats = [];
+let currentFilter = 'all';
+let currentSort = 'listed';
+let searchQuery = '';
+
+function fmt(n) {
+  if (!n) return '—';
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
+}
+
+function fmtEur(n) {
+  if (!n) return '—';
+  return new Intl.NumberFormat('en-EU', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
+}
+
+function daysOnMarket(listedDate) {
+  if (!listedDate) return null;
+  const d = Math.floor((Date.now() - new Date(listedDate)) / 86400000);
+  return d;
+}
+
+function statusClass(status) {
+  if (!status) return 'for-sale';
+  return status.toLowerCase().replace(/\s+/g, '-');
+}
+
+function badgeClass(status) {
+  const s = (status || 'for sale').toLowerCase();
+  if (s.includes('sold')) return 'badge-sold';
+  if (s.includes('offer') || s.includes('contract') || s.includes('pending')) return 'badge-under-offer';
+  return 'badge-for-sale';
+}
+
+function badgeLabel(status) {
+  const s = (status || 'for sale').toLowerCase();
+  if (s.includes('sold')) return 'Sold';
+  if (s.includes('offer') || s.includes('contract') || s.includes('pending')) return 'Under Offer';
+  return 'For Sale';
+}
+
+function priceCutPct(original, current) {
+  if (!original || !current || original <= current) return null;
+  return Math.round((1 - current / original) * 100);
+}
+
+function renderCard(boat) {
+  const days = daysOnMarket(boat.listed_date);
+  const daysClass = days && days > 180 ? 'days-long' : '';
+  const daysStr = days !== null ? `${days} days` : '—';
+  const cut = priceCutPct(boat.original_price, boat.price);
+  const isNew = days !== null && days <= 14;
+  const sc = statusClass(boat.status);
+  const seller = boat.private_sale ? 'Private owner' : (boat.broker || '—');
+  const sellerLabel = boat.private_sale ? 'Private sale' : 'Broker';
+
+  const priceHistory = (boat.price_history || []).slice(-4).reverse();
+
+  return `
+  <div class="boat-card status-${sc}" data-status="${sc}" data-private="${boat.private_sale || false}" data-cut="${cut !== null}">
+    ${boat.image_url
+      ? `<img class="card-image" src="${boat.image_url}" alt="${boat.model || 'Hallberg-Rassy'}" loading="lazy" onerror="this.outerHTML='<div class=\\'card-image-placeholder\\'>No image available</div>'">`
+      : `<div class="card-image-placeholder">No image available</div>`}
+    <span class="status-badge ${badgeClass(boat.status)}">${badgeLabel(boat.status)}</span>
+    ${isNew ? `<span class="badge-new">New</span>` : ''}
+
+    <div class="card-body">
+      <div>
+        <div class="card-title">${boat.model || 'Hallberg-Rassy'} ${boat.year ? '· ' + boat.year : ''}</div>
+        <div class="card-subtitle">${[boat.length_ft ? boat.length_ft + ' ft' : null, boat.location, boat.flag].filter(Boolean).join(' · ') || '—'}</div>
+      </div>
+
+      <div class="price-row">
+        <span class="price-current">${fmt(boat.price)}</span>
+        ${cut ? `<span class="price-original">${fmt(boat.original_price)}</span><span class="price-cut">−${cut}%</span>` : ''}
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-key">Days on market</div>
+          <div class="meta-val ${daysClass}">${daysStr}</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-key">Listed</div>
+          <div class="meta-val">${boat.listed_date ? new Date(boat.listed_date).toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric'}) : '—'}</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-key">Engine</div>
+          <div class="meta-val">${boat.engine || '—'}</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-key">Hull material</div>
+          <div class="meta-val">${boat.hull || 'Fiberglass'}</div>
+        </div>
+      </div>
+
+      ${priceHistory.length > 0 ? `
+      <div class="price-history">
+        <div class="price-history-label">Price history</div>
+        ${priceHistory.map(e => `
+          <div class="price-event">
+            <span>${new Date(e.date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}</span>
+            <span class="${e.type === 'reduction' ? 'cut' : 'orig'}">${e.type === 'reduction' ? '↓ ' : e.type === 'listed' ? '✦ ' : ''}${fmt(e.price)}</span>
+          </div>
+        `).join('')}
+      </div>
+      ` : ''}
+    </div>
+
+    <div class="card-footer">
+      <div class="broker-info">
+        <span>${sellerLabel}</span>
+        <strong>${seller}</strong>
+      </div>
+      ${boat.listing_url ? `<a class="view-btn" href="${boat.listing_url}" target="_blank" rel="noopener">View listing →</a>` : ''}
+    </div>
+  </div>`;
+}
+
+function applyFilters() {
+  let boats = [...allBoats];
+
+  if (currentFilter === 'for-sale') boats = boats.filter(b => statusClass(b.status) === 'for-sale');
+  else if (currentFilter === 'under-offer') boats = boats.filter(b => statusClass(b.status).includes('offer') || statusClass(b.status).includes('contract'));
+  else if (currentFilter === 'sold') boats = boats.filter(b => statusClass(b.status) === 'sold');
+  else if (currentFilter === 'private') boats = boats.filter(b => b.private_sale);
+  else if (currentFilter === 'price-cut') boats = boats.filter(b => b.original_price && b.price < b.original_price);
+
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    boats = boats.filter(b =>
+      (b.model || '').toLowerCase().includes(q) ||
+      (b.location || '').toLowerCase().includes(q) ||
+      (b.broker || '').toLowerCase().includes(q) ||
+      String(b.year || '').includes(q)
+    );
+  }
+
+  if (currentSort === 'listed') boats.sort((a, b) => new Date(b.listed_date || 0) - new Date(a.listed_date || 0));
+  else if (currentSort === 'price-asc') boats.sort((a, b) => (a.price || 0) - (b.price || 0));
+  else if (currentSort === 'price-desc') boats.sort((a, b) => (b.price || 0) - (a.price || 0));
+  else if (currentSort === 'days') boats.sort((a, b) => new Date(a.listed_date || Date.now()) - new Date(b.listed_date || Date.now()));
+  else if (currentSort === 'model') boats.sort((a, b) => (a.model || '').localeCompare(b.model || ''));
+
+  const grid = document.getElementById('grid');
+  if (boats.length === 0) {
+    grid.innerHTML = `<div class="empty-state">No listings match your filters.<br>Try adjusting the search or filter options.</div>`;
+    return;
+  }
+  grid.innerHTML = boats.map(renderCard).join('');
+}
+
+function updateStats(boats) {
+  const total = boats.length;
+  const forSale = boats.filter(b => !b.status || statusClass(b.status) === 'for-sale').length;
+  const underOffer = boats.filter(b => {
+    const s = statusClass(b.status || '');
+    return s.includes('offer') || s.includes('contract') || s.includes('pending');
+  }).length;
+  const sold = boats.filter(b => statusClass(b.status || '') === 'sold').length;
+  const cuts = boats.filter(b => b.original_price && b.price < b.original_price).length;
+  const prices = boats.filter(b => b.price && !statusClass(b.status || '').includes('sold')).map(b => b.price);
+  const avg = prices.length ? prices.reduce((a, b) => a + b, 0) / prices.length : 0;
+
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-forsale').textContent = forSale;
+  document.getElementById('stat-offer').textContent = underOffer;
+  document.getElementById('stat-sold').textContent = sold;
+  document.getElementById('stat-cuts').textContent = cuts;
+  document.getElementById('stat-avg').textContent = avg ? '$' + Math.round(avg / 1000) + 'k' : '—';
+}
+
+async function loadBoats() {
+  try {
+    const res = await fetch('boats.json?v=' + Date.now());
+    if (!res.ok) throw new Error('fetch failed');
+    const data = await res.json();
+    allBoats = data.boats || data;
+
+    const updated = data.last_updated || data.fetched_at;
+    if (updated) {
+      document.getElementById('last-updated').textContent =
+        new Date(updated).toLocaleString('en-GB', { day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' });
+    }
+
+    updateStats(allBoats);
+    applyFilters();
+  } catch (e) {
+    document.getElementById('grid').innerHTML = `
+      <div class="empty-state">
+        Could not load listings.<br>
+        <span style="opacity:0.6;font-size:0.7rem">Make sure boats.json is in the same folder as index.html</span>
+      </div>`;
+  }
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    applyFilters();
+  });
+});
+
+document.querySelectorAll('.sort-opt').forEach(opt => {
+  opt.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelectorAll('.sort-opt').forEach(o => o.classList.remove('active'));
+    opt.classList.add('active');
+    currentSort = opt.dataset.sort;
+    applyFilters();
+  });
+});
+
+document.getElementById('search').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  applyFilters();
+});
+
+loadBoats();
+</script>
+</body>
+</html>
